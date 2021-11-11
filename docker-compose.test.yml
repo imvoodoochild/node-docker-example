@@ -1,0 +1,14 @@
+version: '2'
+services:
+  app:
+    build: .
+    environment:
+      NODE_ENV: test
+    command: npm test
+    ports:
+      - '4000:80'
+    tty: true
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:3.2.5
